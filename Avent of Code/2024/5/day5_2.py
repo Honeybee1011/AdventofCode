@@ -30,15 +30,30 @@ for line in update:
     pastPages = []
     valid = True
 
-    for page in line:
-        if page in rules:
-            for past in pastPages:
-                if past in rules[page]:
+    length = len(line)
+    i = 0
+
+    while i < length:
+        edited = False
+        if line[i] in rules:
+            for k in range(i):
+                if line[k] in rules[line[i]]:
+                    incorrectNum = line.pop(i)
+                    line.insert(k, incorrectNum)
+                    i = 0
                     valid = False
+                    edited = True
+                    break
 
-        pastPages.append(page)
+            if edited == True:
+                i = 0
+            else:
+                i += 1
+        else:
+            i += 1
+        
 
-    if valid == True:
+    if valid == False:
         middle = len(line) // 2
         total += line[middle]
 
