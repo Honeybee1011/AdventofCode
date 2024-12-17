@@ -1,3 +1,3 @@
-Avent of Code 
+Advent of Code 
 
 I wonder how long I'll be here
