@@ -1,4 +1,4 @@
-f1 = open('input5.txt')
+f1 = open('input_5.txt')
 
 rules = {}
 pages = []
@@ -9,7 +9,7 @@ for line in f1:
     if '|' in line:
         line = line.split('|')
         if line[0] not in rules:
-            rules.update(line[0], [line[1]])
+            rules.update({line[0]: [line[1]]})
         else:
             rules[line[0]].append(line[1])
     
